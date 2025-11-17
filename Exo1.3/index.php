@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double boucle nombre</title>
 </head>
 <body>
+ 
+<h1>Choisissez un nombre</h1>
 
-    <h1>Choisissez un nombre</h1>
-    <form method="post">
-        <label for="age">Nombre :</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <br><br>
-        <button type="submit">Envoyer</button>
-    </form>
+<form method="POST" action="index.php">
+    <label for="boucle">Nombre</label>
+    <input type="text" id="boucle" name="boucle" placeholder="Nombre">
+   
+    <button type="submit">Envoyer</button>
+</form>
+ <?php
+ 
+$boucle = 0;
 
-    <?php
-    function boucle($nombre) {
-    
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $nombre = intval($_POST["age"]);
-        $resultat = boucle($nombre);
-        echo "<h2><strong>$resultat</strong></h2>";
-    }
-    ?>
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $boucle = $_POST['boucle'];
+}
+ 
+for ($i = 1; $i <= $boucle; $i++) {
+    echo "";  
+    for ($j = 1; $j <= $i; $j++) {
+    echo "$i";     }
+    echo "<br>";
+ 
+}
+?>
 </body>
 </html>
+
+
+ 
