@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
- 
-        <form method="POST" action="index.php">
-            <label for="str">Votre phrase</label>
-            <input type="text" id="str" name="str" placeholder="Chiffre.">
-            <button type="submit">Envoyer</button>
-        </form>
-    </body>
-</html>
- 
+<head>
+    <title>Inversion de chaîne de caractères</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Inversion de chaîne de caractères</h1>
+
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <label for="original_string">Entrez une chaîne de caractères :</label>
+    <input type="text" id="original_string" name="original_string" required>
+    <button type="submit">Inverser</button>
+</form>
+
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $str = $_POST['str'];
-}
+function my_strrev(string $string): string {
+    $length = strlen($string);
+    $reversed_string = '';
 
-$length = strlen($str);
-$reversed_str = '';    
-  
-for ($i = $length - 1; $i >= 0; $i--) {
-    $reversed_str .= $str[$i];
-}
+    for ($i = $length - 1; $i >= 0; $i--) {
+        $reversed_string .= $string[$i];
+    }
 
-echo $reversed_str;
+    return $reversed_string;
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $original_string = $_POST["original_string"];
+
+    if (!empty($original_string)) {
+        $reversed_string = my_strrev($original_string);
+
+        echo "<p>Chaîne originale : " . htmlspecialchars($original_string) . "</p>";
+        echo "<p>Chaîne inversée : " . htmlspecialchars($reversed_string) . "</p>";
+    } else {
+        echo "<p>Veuillez entrer une chaîne de caractères.</p>";
+    }
+}
 ?>
+</body>
+</html>
+
