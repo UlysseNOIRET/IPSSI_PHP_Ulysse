@@ -26,10 +26,10 @@ if (isset($_POST['notes'])) {
 
 <h2>Entrer vos notes</h2>
 <form method="post">
-    <label>Note 1 : <input type="number" name="notes[]" step="0.01"></label><br><br>
-    <label>Note 2 : <input type="number" name="notes[]" step="0.01"></label><br><br>
-    <label>Note 3 : <input type="number" name="notes[]" step="0.01"></label><br><br>
-    <label>Note 4 : <input type="number" name="notes[]" step="0.01"></label><br><br>
+    <label>Note 1 : <input type="number" name="notes[]"></label><br><br>
+    <label>Note 2 : <input type="number" name="notes[]"></label><br><br>
+    <label>Note 3 : <input type="number" name="notes[]"></label><br><br>
+    <label>Note 4 : <input type="number" name="notes[]"></label><br><br>
 
     <button type="submit">Calculer la moyenne</button>
 </form>
