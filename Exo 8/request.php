@@ -1,6 +1,9 @@
 <?php
 require_once("config.php");
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['username'])) {
+    $_SESSION['username'] = $_POST['username'];
+}
 if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -48,6 +51,11 @@ if (isset($_POST['login'])) {
         $message = "<b>Veuillez remplir tous les champs.</b>";
     }
 }
+
+if (isset($_SESSION["username"])) {
+    echo"<h2>Bonjour " . $_SESSION["username"] . "</h2>";
+}
+
 ?>
  
 <!DOCTYPE html>
